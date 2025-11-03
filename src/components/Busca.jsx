@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { IoSearch } from "react-icons/io5";
 
 const Busca = ({ setQuery }) => {
     
@@ -14,10 +15,10 @@ const Busca = ({ setQuery }) => {
     
     return (
         <>
-            <form onSubmit={lidarComBusca}>
-                <input type="text" placeholder="Digite uma cidade..." value={cidade} 
+            <form onSubmit={lidarComBusca} className="formulario">
+                <input className="input-buscar" type="text" placeholder="Procure por uma cidade..." value={cidade} 
                 onChange={ (e) => setCidade(e.target.value) }/>
-                <button type="submit">Buscar</button>
+                <button className="botao-buscar" type="submit"><IoSearch /></button>
             </form>
         </>
     )

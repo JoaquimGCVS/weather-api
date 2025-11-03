@@ -7,15 +7,15 @@ const getDadosDoClima = async (cidade, unidades = "metric") => {
     // Endpoint principal para CLIMA ATUAL
     const urlAtual = `${URL_BASE}/weather?q=${cidade}&units=${unidades}&appid=${CHAVE_API}`;
 
-    // Endpoint de PREVISÃO DE 5 DIAS / 3 HORAS (Alternativa mais estável para conta Free)
+    // Endpoint para previsao de 5 dias
     const urlPrevisao5Dias = `${URL_BASE}/forecast?q=${cidade}&units=${unidades}&appid=${CHAVE_API}`;
     
     try {
-        // 1. Busca do Clima Atual
+        // Busca do Clima Atual
         const respostaAtual = await axios.get(urlAtual);
         const dadosAtuais = respostaAtual.data;
 
-        // 2. Busca da Previsão de 5 Dias/3 Horas
+        // Busca da Previsão de 5 Dias/3 Horas
         const respostaPrevisao = await axios.get(urlPrevisao5Dias);
         const dadosPrevisao = respostaPrevisao.data;
 

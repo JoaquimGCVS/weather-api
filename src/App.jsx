@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import getDadosDoClima from './services/weatherService'; 
 import Busca from './components/Busca'; 
+import ClimaAtual from './components/ClimaAtual';
 
 function App() {
 
-  const [cidadeBuscada, setCidadeBuscada] = useState("Londres"); 
+  const [cidadeBuscada, setCidadeBuscada] = useState(""); 
   const [dadosDoClima, setDadosDoClima] = useState(null);
   const [carregando, setCarregando] = useState(false); 
   const [erro, setErro] = useState(null);
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className='container'>
-      <h1>Previsão do Tempo Global</h1>
+      <h1>Weather API</h1>
       
       {/* Passa a função para o componente de busca */}
       <Busca setQuery={setCidadeBuscada} /> 
@@ -48,8 +49,7 @@ function App() {
       {/* Área onde os componentes de ClimaAtual e Previsao7Dias serão exibidos */}
       {dadosDoClima && (
         <div className='dados'>
-          {/* Aqui chamaremos <ClimaAtual /> e <Previsao7Dias /> */}
-          <p>Dados carregados com sucesso! (Próxima etapa: exibição)</p>
+          <ClimaAtual dadosClima={dadosDoClima}/>
         </div>
       )}
     </div>
