@@ -1,10 +1,9 @@
 import React from 'react';
 import { formatarDataHora } from '../utils/formatador';
+import styles from './ClimaAtual.module.css';
 
-// O componente recebe 'dadosClima' (o objeto completo da API) como prop
 const ClimaAtual = ({ dadosClima }) => {
     
-    // Desestruturação dos dados do clima atual
     const { 
         name, 
         sys: { country, sunrise, sunset },
@@ -15,66 +14,60 @@ const ClimaAtual = ({ dadosClima }) => {
         timezone 
     } = dadosClima;
 
-    // Constrói a URL do ícone
     const iconeUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
     const descricaoClima = weather[0].description;
     
-    // Formatações e Conversões
     const dataHoraFormatada = formatarDataHora(dt, timezone);
     const nascerDoSolFormatado = formatarDataHora(sunrise, timezone).substring(17, 22);
     const porDoSolFormatado = formatarDataHora(sunset, timezone).substring(17, 22);
-    const velocidadeVentoKmh = (speed * 3.6).toFixed(1); // Converte m/s para km/h
+    const velocidadeVentoKmh = (speed * 3.6).toFixed(1);
 
-    // Renderiza a visualização
     return (
-        <div className="clima-atual">
+        <div className={styles.climaAtual}>
             
-            {/* Localização e Data */}
-            <div className="cabecalho">
+            <div className={styles.cabecalho}>
                 <h2>{name}, {country}</h2>
                 <p>Última Medição: {dataHoraFormatada}</p>
             </div>
 
-            {/* Condição Principal */}
-            <div className="condicao-principal">
+            <div className={styles.condicaoPrincipal}>
                 <img src={iconeUrl} alt={descricaoClima} />
-                <div className="texto-esquerda">
-                    <h1 className="temperatura">{Math.round(temp)}°C</h1>
-                    <p className="descricao">{descricaoClima}</p>
+                <div className={styles.textoEsquerda}>
+                    <h1 className={styles.temperatura}>{Math.round(temp)}°C</h1>
+                    <p className={styles.descricao}>{descricaoClima}</p>
                 </div>
             </div>
 
-            {/* Detalhes */}
-            <div className="detalhes">
+            <div className={styles.detalhes}>
                 
-                <div className="detalhe-item">
+                <div className={styles.detalheItem}>
                     <p>Mínima</p>
-                    <p className="valor-detalhe">{Math.round(temp_min)}°C</p>
+                    <p className={styles.valorDetalhe}>{Math.round(temp_min)}°C</p>
                 </div>
                 
-                <div className="detalhe-item">
+                <div className={styles.detalheItem}>
                     <p>Máxima</p>
-                    <p className="valor-detalhe">{Math.round(temp_max)}°C</p>
+                    <p className={styles.valorDetalhe}>{Math.round(temp_max)}°C</p>
                 </div>
                 
-                <div className="detalhe-item">
+                <div className={styles.detalheItem}>
                     <p>Umidade</p>
-                    <p className="valor-detalhe">{humidity}%</p>
+                    <p className={styles.valorDetalhe}>{humidity}%</p>
                 </div>
                 
-                <div className="detalhe-item">
+                <div className={styles.detalheItem}>
                     <p>Vento</p>
-                    <p className="valor-detalhe">{velocidadeVentoKmh} km/h</p>
+                    <p className={styles.valorDetalhe}>{velocidadeVentoKmh} km/h</p>
                 </div>
                 
-                <div className="detalhe-item">
+                <div className={styles.detalheItem}>
                     <p>Nascer do Sol</p>
-                    <p className="valor-detalhe">{nascerDoSolFormatado}</p>
+                    <p className={styles.valorDetalhe}>{nascerDoSolFormatado}</p>
                 </div>
                 
-                <div className="detalhe-item">
+                <div className={styles.detalheItem}>
                     <p>Pôr do Sol</p>
-                    <p className="valor-detalhe">{porDoSolFormatado}</p>
+                    <p className={styles.valorDetalhe}>{porDoSolFormatado}</p>
                 </div>
                 
             </div>

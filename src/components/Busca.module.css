@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 5rem;
+  color: var(--preto);
+  margin-bottom: 1rem;
+}
+
+.formulario {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.inputBuscar {
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 0.8rem 1rem;
+  box-shadow: var(--box-shadow);
+  font-size: var(--font-paragrafo);
+  width: 20rem;
+  outline: none;
+  border: none;
+  color: var(--preto);
+}
+
+.botaoBuscar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--preto);
+}

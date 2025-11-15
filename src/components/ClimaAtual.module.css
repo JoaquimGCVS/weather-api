@@ -1,0 +1,62 @@
+.climaAtual {
+  padding: var(--padding);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cabecalho {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.condicaoPrincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.condicaoPrincipal img {
+  width: 96px;
+  height: 96px;
+}
+
+.textoEsquerda {
+  text-align: left;
+}
+
+.temperatura {
+  font-size: 4em;
+  margin: 0 20px;
+  font-weight: bold;
+}
+
+.descricao {
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+.detalhes {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detalheItem {
+  flex: 1 1 150px;
+  margin: 10px 5px;
+  padding: 10px;
+  background-color: #e6eef7;
+  border-radius: 5px;
+}
+
+.valorDetalhe {
+  font-weight: bold;
+  font-size: 1.1em;
+}

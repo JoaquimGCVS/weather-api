@@ -37,7 +37,6 @@ function App() {
 
   return (
     <div className='container'>
-      <h1>Weather API</h1>
       
       {/* Passa a função para o componente de busca */}
       <Busca setQuery={setCidadeBuscada} /> 
