@@ -6,7 +6,7 @@
 
 .header h1 {
   font-size: 5rem;
-  color: var(--preto);
+  color: var(--branco);
   margin-bottom: 1rem;
 }
 
@@ -16,15 +16,18 @@
 }
 
 .inputBuscar {
-  background: var(--background);
+  background: var(--cinza);
   border-radius: var(--border-radius);
-  padding: 0.8rem 1rem;
-  box-shadow: var(--box-shadow);
+  padding: 1rem 1.2rem;
   font-size: var(--font-paragrafo);
   width: 20rem;
   outline: none;
   border: none;
-  color: var(--preto);
+  color: var(--branco);
+}
+
+.inputBuscar::placeholder {
+    color: var(--cinza-claro);
 }
 
 .botaoBuscar {
@@ -32,5 +35,5 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: var(--preto);
+  color: var(--branco);
 }

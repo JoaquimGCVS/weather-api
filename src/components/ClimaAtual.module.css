@@ -1,62 +1,56 @@
 .climaAtual {
-  padding: var(--padding);
-  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 0 2rem;
 }
 
-.cabecalho {
-  text-align: center;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
-}
-
-.condicaoPrincipal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.condicaoPrincipal img {
-  width: 96px;
-  height: 96px;
-}
-
-.textoEsquerda {
-  text-align: left;
+.condicaoPrincipal .descricao {
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: var(--branco);
 }
 
 .temperatura {
-  font-size: 4em;
-  margin: 0 20px;
-  font-weight: bold;
+  font-size: 6.1rem;
+  color: var(--branco);
+  font-weight: 200;
 }
 
-.descricao {
-  font-size: 1.2em;
-  text-transform: capitalize;
+.cabecalho {
+  display: flex;
+  color: var(--branco);
+  justify-content: flex-start;
+}
+
+.cabecalho h2 {
+    font-size: 4rem;
+}
+
+.cabecalho img {
+  width: 56px;
+  height: 56px;
+}
+
+.condicaoDetalhada {
+    display: flex;
+    gap: 1rem;
 }
 
 .detalhes {
   display: flex;
-  justify-content: space-around;
-  text-align: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 1.5rem;
 }
 
 .detalheItem {
-  flex: 1 1 150px;
-  margin: 10px 5px;
-  padding: 10px;
-  background-color: #e6eef7;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--branco);
+  font-size: 1.2rem;
 }
 
 .valorDetalhe {
-  font-weight: bold;
   font-size: 1.1em;
 }

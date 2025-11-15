@@ -9,12 +9,12 @@ body {
 }
 
 :root {
-  --padding: 2rem 1rem;
-  --white: white;
-  --preto: #101010;
-  --background: #f4f4f4;
-  --border-radius: 1.2rem;
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.13);
+  --branco: white;
+  --preto: #090a0ad8;
+  --cinza-escuro: #1a1a1a;
+  --cinza: #343434d8;
+  --cinza-claro: #a6a7a7d8;
+  --border-radius: 2rem;
   --font-paragrafo: 1rem;
 }
 
@@ -22,6 +22,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--background);
+  background: var(--cinza-escuro);
   height: 100vh;
 }
