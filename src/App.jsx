@@ -7,16 +7,12 @@ function App() {
 
   const [cidadeBuscada, setCidadeBuscada] = useState(""); 
   const [dadosDoClima, setDadosDoClima] = useState(null);
-  const [carregando, setCarregando] = useState(false); 
-  const [erro, setErro] = useState(null);
 
   useEffect(() => {
     const buscarEAtualizarClima = async () => {
       if (!cidadeBuscada) return;
 
       try {
-        setCarregando(true);
-        setErro(null);
         
         // Chamada ao serviço, que usa o Axios internamente
         const dados = await getDadosDoClima(cidadeBuscada); 
@@ -25,11 +21,8 @@ function App() {
         console.log("Dados da API no App.jsx:", dados); 
         
       } catch (e) {
-        setErro(e.message);
         setDadosDoClima(null);
-      } finally {
-        setCarregando(false);
-      }
+      } 
     };
 
     buscarEAtualizarClima();

@@ -19,9 +19,11 @@ const Busca = ({ setQuery }) => {
             <h1>Weather API</h1>
             <p>Procure pelo clima em qualquer cidade do mundo!</p>
             <form onSubmit={lidarComBusca} className={styles.formulario}>
-                <input className={styles.inputBuscar} type="text" placeholder="Procure por uma cidade..." value={cidade} 
-                onChange={ (e) => setCidade(e.target.value) }/>
-                <button className={styles.botaoBuscar} type="submit"><IoSearch /></button>
+                <div className={styles.inputWrapper}>
+                    <input className={styles.inputBuscar} type="text" placeholder="Procure por uma cidade..." value={cidade} 
+                    onChange={ (e) => setCidade(e.target.value) }/>
+                    <button className={styles.botaoBuscar} type="submit"><IoSearch /></button>
+                </div>
             </form>
         </div>
     )

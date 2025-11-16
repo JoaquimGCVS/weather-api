@@ -24,6 +24,12 @@
   gap: 0.5rem;
 }
 
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .inputBuscar {
   background: var(--cinza);
   border-radius: var(--border-radius);
@@ -45,4 +51,6 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--branco);
+  position: absolute;
+  right: 1rem;
 }
