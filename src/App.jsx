@@ -41,10 +41,6 @@ function App() {
       {/* Passa a função para o componente de busca */}
       <Busca setQuery={setCidadeBuscada} /> 
       
-      {/* Status da equisicao */}
-      {carregando && <h2 className='carregando'>Carregando dados de **{cidadeBuscada}**...</h2>}
-      {erro && <h2 className='erro'>Erro: {erro}</h2>}
-      
       {/* Área onde os componentes de ClimaAtual e Previsao7Dias serão exibidos */}
       {dadosDoClima && (
         <div className='dados'>

@@ -21,7 +21,11 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: var(--cinza-escuro);
   height: 100vh;
+}
+
+.dados {
+  display: flex;
+  margin-top: auto;
 }

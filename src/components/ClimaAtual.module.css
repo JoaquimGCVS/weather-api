@@ -1,8 +1,7 @@
 .climaAtual {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 0 2rem;
+  padding: 2rem;
 }
 
 .condicaoPrincipal .descricao {
@@ -12,7 +11,7 @@
 }
 
 .temperatura {
-  font-size: 6.1rem;
+  font-size: 6rem;
   color: var(--branco);
   font-weight: 200;
 }
@@ -21,10 +20,11 @@
   display: flex;
   color: var(--branco);
   justify-content: flex-start;
+  margin-bottom: 0.5rem;
 }
 
 .cabecalho h2 {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .cabecalho img {
@@ -35,6 +35,7 @@
 .condicaoDetalhada {
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 
 .detalhes {

@@ -17,6 +17,7 @@ const Busca = ({ setQuery }) => {
     return (
         <div className={styles.header}>
             <h1>Weather API</h1>
+            <p>Procure pelo clima em qualquer cidade do mundo!</p>
             <form onSubmit={lidarComBusca} className={styles.formulario}>
                 <input className={styles.inputBuscar} type="text" placeholder="Procure por uma cidade..." value={cidade} 
                 onChange={ (e) => setCidade(e.target.value) }/>
