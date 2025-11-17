@@ -23,13 +23,11 @@ function App() {
       if (!cidadeBuscada) return;
 
       try {
-        
         // Chamada ao serviço, que usa o Axios internamente
         const dados = await getDadosDoClima(cidadeBuscada); 
         
         setDadosDoClima(dados); 
         console.log("Dados da API no App.jsx:", dados); 
-        
       } catch (e) {
         setDadosDoClima(null);
       } 
