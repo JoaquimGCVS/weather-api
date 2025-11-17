@@ -16,6 +16,17 @@ body {
   --cinza-claro: #a6a7a7d8;
   --border-radius: 2rem;
   --font-paragrafo: 1rem;
+  --bg-overlay: rgba(0,0,0,0.25); 
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.3s ease;
 }
 
 .container {
@@ -23,6 +34,18 @@ body {
   flex-direction: column;
   background: var(--cinza-escuro);
   height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
+  position: relative; 
+  z-index: 0; 
+  overflow: hidden;
+}
+
+.container > * {
+  position: relative;
+  z-index: 2;
 }
 
 .dados {

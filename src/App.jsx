@@ -4,6 +4,8 @@ import Busca from './components/Busca';
 import ClimaAtual from './components/ClimaAtual';
 import SeletorIdioma from './components/SeletorIdioma'; 
 import getTranslation from './utils/i18n'; 
+// Importa o serviço que usa a chave da Unsplash
+import buscarImagemCidade from './services/unsplashService'; 
 
 function App() {
 
@@ -12,6 +14,9 @@ function App() {
   
   const [language, setLanguage] = useState('pt-BR'); 
   const [t, setT] = useState(getTranslation('pt-BR')); 
+  
+  // Estado inicial é o fundo padrão
+  const [imagemCidade, setImagemCidade] = useState(null); 
 
   useEffect(() => {
     setT(getTranslation(language));
@@ -19,25 +24,40 @@ function App() {
 
 
   useEffect(() => {
-    const buscarEAtualizarClima = async () => {
-      if (!cidadeBuscada) return;
+    const buscarEAtualizarClimaEImagem = async () => {
+      // Se não há cidade buscada (estado inicial ou reset), volta para o fundo padrão
+      if (!cidadeBuscada) {
+          setImagemCidade(null); 
+          setDadosDoClima(null);
+          return;
+      }
 
       try {
-        // Chamada ao serviço, que usa o Axios internamente
-        const dados = await getDadosDoClima(cidadeBuscada); 
+        // Busca o clima e a imagem da cidade via sua API Unsplash
+        const [dadosClima, urlImagem] = await Promise.all([
+            getDadosDoClima(cidadeBuscada),
+            buscarImagemCidade(cidadeBuscada) 
+        ]);
         
-        setDadosDoClima(dados); 
-        console.log("Dados da API no App.jsx:", dados); 
+        setImagemCidade(urlImagem || null); 
+        
+        setDadosDoClima(dadosClima); 
+        console.log("Dados da API no App.jsx:", dadosClima); 
       } catch (e) {
         setDadosDoClima(null);
+        setImagemCidade(null); 
       } 
     };
 
-    buscarEAtualizarClima();
-  }, [cidadeBuscada]); // Re-executa sempre que a cidadeBuscada muda
+    buscarEAtualizarClimaEImagem();
+  }, [cidadeBuscada]); 
 
   return (
-    <div className='container'>
+    // Aplica o background style dinamicamente.
+    <div 
+        className='container' 
+        style={{ backgroundImage: imagemCidade }}
+    >
       <SeletorIdioma setLanguage={setLanguage} currentLanguage={language} />
       <Busca setQuery={setCidadeBuscada} t={t} /> 
       
