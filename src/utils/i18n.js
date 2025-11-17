@@ -1,9 +1,7 @@
-// src/i18n.js
-
 const translations = {
     'pt-BR': {
         appTitle: "API do Clima",
-        searchSubtitle: "Procure pelo clima em qualquer cidade do mundo!",
+        searchSubtitle: "Procure pelo clima de qualquer cidade do mundo!",
         searchPlaceholder: "Procure por uma cidade...",
         minTempLabel: "Temperatura Mínima",
         maxTempLabel: "Temperatura Máxima",

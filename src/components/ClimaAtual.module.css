@@ -21,6 +21,12 @@
   color: var(--branco);
   justify-content: flex-start;
   margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.cabecalho .horaAtual {
+  font-size: 2.5rem;
 }
 
 .cabecalho h2 {

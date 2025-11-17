@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { IoSearch } from "react-icons/io5";
 import styles from './Busca.module.css';
+import EfeitoTyping from './EfeitoTyping';
 
-const Busca = ({ setQuery }) => {
+const Busca = ({ setQuery, t }) => { 
     
     const [cidade, setCidade] = useState("");
 
@@ -16,12 +17,18 @@ const Busca = ({ setQuery }) => {
     
     return (
         <div className={styles.header}>
-            <h1>Weather API</h1>
-            <p>Procure pelo clima em qualquer cidade do mundo!</p>
+            <h1>{t.appTitle}</h1> 
+            <EfeitoTyping key={t.searchSubtitle} texto={t.searchSubtitle} />
+            
             <form onSubmit={lidarComBusca} className={styles.formulario}>
                 <div className={styles.inputWrapper}>
-                    <input className={styles.inputBuscar} type="text" placeholder="Procure por uma cidade..." value={cidade} 
-                    onChange={ (e) => setCidade(e.target.value) }/>
+                    <input 
+                        className={styles.inputBuscar} 
+                        type="text" 
+                        placeholder={t.searchPlaceholder} 
+                        value={cidade} 
+                        onChange={ (e) => setCidade(e.target.value) }
+                    />
                     <button className={styles.botaoBuscar} type="submit"><IoSearch /></button>
                 </div>
             </form>

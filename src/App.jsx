@@ -2,11 +2,21 @@ import { useEffect, useState } from 'react';
 import getDadosDoClima from './services/weatherService'; 
 import Busca from './components/Busca'; 
 import ClimaAtual from './components/ClimaAtual';
+import SeletorIdioma from './components/SeletorIdioma'; 
+import getTranslation from './utils/i18n'; 
 
 function App() {
 
   const [cidadeBuscada, setCidadeBuscada] = useState(""); 
   const [dadosDoClima, setDadosDoClima] = useState(null);
+  
+  const [language, setLanguage] = useState('pt-BR'); 
+  const [t, setT] = useState(getTranslation('pt-BR')); 
+
+  useEffect(() => {
+    setT(getTranslation(language));
+  }, [language]); 
+
 
   useEffect(() => {
     const buscarEAtualizarClima = async () => {
@@ -30,14 +40,13 @@ function App() {
 
   return (
     <div className='container'>
-      
-      {/* Passa a função para o componente de busca */}
-      <Busca setQuery={setCidadeBuscada} /> 
+      <SeletorIdioma setLanguage={setLanguage} currentLanguage={language} />
+      <Busca setQuery={setCidadeBuscada} t={t} /> 
       
       {/* Área onde os componentes de ClimaAtual e Previsao7Dias serão exibidos */}
       {dadosDoClima && (
         <div className='dados'>
-          <ClimaAtual dadosClima={dadosDoClima}/>
+          <ClimaAtual dadosClima={dadosDoClima} t={t} />
         </div>
       )}
     </div>
