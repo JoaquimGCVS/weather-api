@@ -6,19 +6,75 @@
 }
 
 .select {
-    background: var(--cinza); /* Usa variável de cor existente */
+    background: var(--cinza);
     color: var(--branco);
     border: 1px solid var(--cinza-claro);
-    border-radius: var(--border-radius) ;
-    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1.2rem 0.5rem 0.5rem;
     cursor: pointer;
     font-size: 0.9rem;
     outline: none;
-    -webkit-appearance: none; /* Remove estilo padrão em navegadores WebKit */
-    -moz-appearance: none;    /* Remove estilo padrão em Firefox */
-    appearance: none;         /* Remove estilo padrão */
-    padding-right: 1.2rem; 
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20d%3D%22M4.5%204l3%203%203-3H4.5z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.5rem center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.select:hover {
+    border-color: var(--branco);
+}
+
+.arrow {
+    position: absolute;
+    right: 0.5rem;
+    font-size: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.arrowUp {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    right: 0;
+    background: var(--cinza);
+    border: 1px solid var(--cinza-claro);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.2s ease;
+    width: 7.2rem;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.option {
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--branco);
+    transition: background 0.15s ease;
+    font-size: 0.9rem;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.optionActive {
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
 }
