@@ -27,6 +27,10 @@ const Previsao5Dias = ({ previsao, t }) => {
         return (t?.weather && t.weather[descricao.toLowerCase()]) || descricao;
     };
 
+    const traduzirDiaSemana = (dia) => {
+        return (t?.weekdays && t.weekdays[dia.toLowerCase()]) || dia;
+    };
+
     return (
         <div className={styles.container}>
             <button 
@@ -42,13 +46,14 @@ const Previsao5Dias = ({ previsao, t }) => {
                     {previsoesDiarias.map((dia, index) => {
                         const data = new Date(dia.dt * 1000);
                         const diaSemana = data.toLocaleDateString('pt-BR', { weekday: 'short' });
+                        const diaTraduzido = traduzirDiaSemana(diaSemana);
                         const diaNumero = data.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
                         const iconeUrl = `http://openweathermap.org/img/wn/${dia.weather[0].icon}@2x.png`;
                         const descricao = traduzirDescricao(dia.weather[0].description);
 
                         return (
                             <div key={index} className={styles.card}>
-                                <p className={styles.dia}>{diaSemana}</p>
+                                <p className={styles.dia}>{diaTraduzido}</p>
                                 <p className={styles.data}>{diaNumero}</p>
                                 <img src={iconeUrl} alt={descricao} className={styles.icone} />
                                 <p className={styles.temperatura}>{Math.round(dia.main.temp)}°</p>

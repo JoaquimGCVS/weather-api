@@ -9,6 +9,15 @@ const translations = {
         windSpeedLabel: "Velocidade do Vento",
         sunriseLabel: "Nascer do Sol",
         sunsetLabel: "Pôr do Sol",
+        weekdays: {
+            "dom.": "Dom",
+            "seg.": "Seg",
+            "ter.": "Ter",
+            "qua.": "Qua",
+            "qui.": "Qui",
+            "sex.": "Sex",
+            "sáb.": "Sáb"
+        },
         weather: {
             "clear sky": "céu limpo",
             "few clouds": "poucas nuvens",
@@ -37,6 +46,15 @@ const translations = {
         windSpeedLabel: "Wind Speed",
         sunriseLabel: "Sunrise",
         sunsetLabel: "Sunset",
+        weekdays: {
+            "dom.": "Sun",
+            "seg.": "Mon",
+            "ter.": "Tue",
+            "qua.": "Wed",
+            "qui.": "Thu",
+            "sex.": "Fri",
+            "sáb.": "Sat"
+        },
         weather: {
             "clear sky": "Clear sky",
             "few clouds": "Few clouds",
