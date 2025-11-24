@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CHAVE_ACESSO_UNSPLASH = "6LTkV91BniAZkanky4qhgJojAfqM6iR8Lq3UpQhfJu4"; 
+const CHAVE_ACESSO_UNSPLASH = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 const URL_UNSPLASH = "https://api.unsplash.com/search/photos";
 
 const buscarImagemCidade = async (nomeCidade) => {
