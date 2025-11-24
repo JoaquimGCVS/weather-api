@@ -1,0 +1,128 @@
+.container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    z-index: 5;
+}
+
+.toggleButton {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background: var(--cinza);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--branco);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+.toggleButton:hover {
+    border: 1px solid var(--branco);
+}
+
+.previsaoContainer {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin-bottom: 4.5rem;
+    overflow-x: auto;
+}
+
+.aparecer {
+    animation: slideUp 400ms cubic-bezier(.22,.9,.28,1) both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--cinza);
+    border-radius: 1rem;
+    padding: 1rem;
+    min-width: 220px;
+    gap: 0.5rem;
+}
+
+.dia {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--branco);
+    text-transform: capitalize;
+}
+
+.data {
+    font-size: 0.85rem;
+    color: var(--cinza-claro);
+}
+
+.icone {
+    width: 64px;
+    height: 64px;
+}
+
+.temperatura {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--branco);
+}
+
+.descricao {
+    font-size: 0.85rem;
+    color: var(--cinza-claro);
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.minMax {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.min {
+    color: #64b5f6;
+}
+
+.max {
+    color: #ef5350;
+}
+
+/* Scrollbar customizado */
+.previsaoContainer::-webkit-scrollbar {
+    height: 8px;
+}
+
+.previsaoContainer::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.previsaoContainer::-webkit-scrollbar-thumb {
+    background: var(--cinza-claro);
+    border-radius: 10px;
+}
