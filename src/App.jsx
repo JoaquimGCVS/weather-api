@@ -5,14 +5,16 @@ import ClimaAtual from './components/ClimaAtual';
 import Previsao5Dias from './components/Previsao5Dias';
 import SeletorIdioma from './components/SeletorIdioma'; 
 import getTranslation from './utils/i18n'; 
-import buscarImagemCidade from './services/unsplashService'; 
+import buscarImagemCidade from './services/unsplashService';
+import LoadingAnimation from './components/LoadingAnimation';
 
 function App() {
 
   const [cidadeBuscada, setCidadeBuscada] = useState(""); 
   const [dadosDoClima, setDadosDoClima] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   
-  const [language, setLanguage] = useState('pt-BR'); 
+  const [language, setLanguage] = useState('en-US'); 
   const [t, setT] = useState(getTranslation('pt-BR')); 
   
   const [imagemCidade, setImagemCidade] = useState(null); 
@@ -29,6 +31,7 @@ function App() {
           return;
       }
 
+      setIsLoading(true);
       try {
         const [dadosClima, urlImagem] = await Promise.all([
             getDadosDoClima(cidadeBuscada),
@@ -41,7 +44,9 @@ function App() {
       } catch (e) {
         setDadosDoClima(null);
         setImagemCidade(null); 
-      } 
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     buscarEAtualizarClimaEImagem();
@@ -55,7 +60,9 @@ function App() {
       <SeletorIdioma setLanguage={setLanguage} currentLanguage={language} />
       <Busca setQuery={setCidadeBuscada} t={t} /> 
       
-      {dadosDoClima && (
+      {isLoading && <LoadingAnimation t={t} />}
+      
+      {dadosDoClima && !isLoading && (
         <>
           <div className='dados'>
             <ClimaAtual dadosClima={dadosDoClima} t={t} />
