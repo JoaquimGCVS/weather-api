@@ -5,7 +5,7 @@ const URL_BASE = "https://api.openweathermap.org/data/2.5";
 
 const getDadosDoClima = async (cidade, unidades = "metric") => {
     // Endpoint principal para CLIMA ATUAL
-    const urlAtual = `${URL_BASE}/weather?q=${cidade}&units=${unidades}&appid=${CHAVE_API}`;
+    const urlAtual = `${URL_BASE}/weather?q=${cidade}&units=${unidades}&appid=${CHAVE_API}`; //teste
 
     // Endpoint para previsao de 5 dias
     const urlPrevisao5Dias = `${URL_BASE}/forecast?q=${cidade}&units=${unidades}&appid=${CHAVE_API}`;
@@ -39,4 +39,4 @@ const getDadosDoClima = async (cidade, unidades = "metric") => {
     }
 }
 
-export default getDadosDoClima;
+export default getDadosDoClima; 
